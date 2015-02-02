@@ -162,6 +162,11 @@ namespace RobloxModManager
                     byte[] fileContents = File.ReadAllBytes(modFile);
                     FileInfo modFileControl = new FileInfo(modFile);
                     string relativeFile = modFile.Replace(modPath, studioRoot);
+                    if (!File.Exists(relativeFile))
+                    {
+                        File.Create(relativeFile);
+                    
+                    }
                     byte[] studioFile = File.ReadAllBytes(relativeFile);
                     if (!fileContents.SequenceEqual(studioFile))
                     {
