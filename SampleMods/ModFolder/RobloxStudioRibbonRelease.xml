@@ -34,7 +34,7 @@
             <addaction name="settingsAction"/>
         </SystemPopup>
     </SystemButton>
-    <RibbonBar minimizeButton="true" themeoptions="false" font="">
+    <RibbonBar minimizeButton="true" themeoptions="true" font="">
         <TabPage name="Main">
 		<Group name="Clipboard">
 			<addaction name="pasteAction" style="textundericon" tooltip="Paste item in clipboard" icon=":/RibbonBar/images/RibbonIcons/Home/Paste.png" width="32" height="32" />
