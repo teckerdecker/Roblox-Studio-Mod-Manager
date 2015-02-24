@@ -117,7 +117,7 @@
 			<Properties>
 				<bool name="Browsable">true</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">0</int>
+				<int name="ExplorerImageIndex">78</int>
 				<int name="ExplorerOrder">99</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
@@ -477,7 +477,7 @@
 				<bool name="Browsable">true</bool>
 				<bool name="Deprecated">false</bool>
 				<int name="ExplorerImageIndex">60</int>
-				<int name="ExplorerOrder">-1</int>
+				<int name="ExplorerOrder">14</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">KeyframeSequenceProvider</string>
@@ -768,7 +768,7 @@
 				<bool name="IsBackend">false</bool>
 				<string name="Name">RunService</string>
 				<string name="PreferredParent"></string>
-				<string name="summary">A propulsion system that mimics a rocket</string>
+				<string name="summary">The RunService is responsible for handling the running of other services. </string>
 			</Properties>
 		</Item>
 		<Item class="ReflectionMetadataClass" referent="RBXC867B8EF54BC4AC7B4B610138D68F669">
@@ -1292,7 +1292,7 @@
 		<Item class="ReflectionMetadataClass" referent="RBXAA3C9DDEE4BC41168256588F158C7EDF">
 			<Properties>
 				<bool name="Browsable">true</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">33</int>
 				<int name="ExplorerOrder">11</int>
 				<bool name="Insertable">true</bool>
@@ -2045,7 +2045,7 @@
 			<Properties>
 				<bool name="Browsable">true</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">-1</int>
+				<int name="ExplorerImageIndex">37</int>
 				<int name="ExplorerOrder">99</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
@@ -2195,7 +2195,7 @@
 						<bool name="Deprecated">false</bool>
 						<bool name="IsBackend">false</bool>
 						<string name="Name">ProcessReceipt</string>
-						<string name="summary">Callback that is executed for pending Developer Product receipts.
+						<string name="summary"><![CDATA[Callback that is executed for pending Developer Product receipts.
             
             If this function does not return Enum.ProductPurchaseDecision.PurchaseGranted, then you will not be granted the money for the purchase!
             
@@ -2206,7 +2206,7 @@
             ProductId - the id of the purchased product.
             CurrencyType - the type of currency used (Tix, Robux).
             CurrencySpent - the amount of currency spent on the product for this purchase.
-            </string>
+            ]]></string>
 					</Properties>
 				</Item>
 			</Item>
@@ -2698,12 +2698,12 @@
 			<Properties>
 				<bool name="Browsable">false</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">0</int>
-				<int name="ExplorerOrder">0</int>
+				<int name="ExplorerImageIndex">58</int>
+				<int name="ExplorerOrder">999</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">GlobalSettings</string>
-				<string name="PreferredParent"></string>
+				<string name="PreferredParent">DataModel</string>
 				<string name="summary"></string>
 			</Properties>
 		</Item>
@@ -2749,7 +2749,7 @@
 		<Item class="ReflectionMetadataClass" referent="RBXD77DF7FDE2944900896C78F542DB87A5">
 			<Properties>
 				<bool name="Browsable">false</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">0</int>
 				<int name="ExplorerOrder">99</int>
 				<bool name="Insertable">true</bool>
@@ -3368,7 +3368,7 @@
 		<Item class="ReflectionMetadataClass" referent="RBXF8C33E44A2AD43EB9F3A059FD6EBF89C">
 			<Properties>
 				<bool name="Browsable">true</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">0</int>
 				<int name="ExplorerOrder">0</int>
 				<bool name="Insertable">true</bool>
@@ -3500,7 +3500,7 @@
 			<Properties>
 				<bool name="Browsable">true</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">29</int>
+				<int name="ExplorerImageIndex">15</int>
 				<int name="ExplorerOrder">3</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
@@ -3653,13 +3653,13 @@
 			<Properties>
 				<bool name="Browsable">true</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">2</int>
+				<int name="ExplorerImageIndex">68</int>
 				<int name="ExplorerOrder">10</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">Status</string>
 				<string name="PreferredParent"></string>
-				<string name="summary"></string>
+				<string name="summary">Used as a representation of custom Humanoid Statuses</string>
 			</Properties>
 			<Item class="ReflectionMetadataFunctions" referent="RBX52D466CACD49486B92EB1EA3743937F6">
 				<Properties>
@@ -4255,7 +4255,7 @@
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">Debris</string>
-				<string name="PreferredParent"></string>
+				<string name="PreferredParent">DataModel</string>
 				<string name="summary">A service that provides utility in cleaning up objects</string>
 			</Properties>
 			<Item class="ReflectionMetadataFunctions" referent="RBX7C5C9DC686B448AB8F43F1B287541C5E">
@@ -4306,7 +4306,7 @@
 				<bool name="IsBackend">false</bool>
 				<string name="Name">Accoutrement</string>
 				<string name="PreferredParent"></string>
-				<string name="summary"></string>
+				<string name="summary">The base class for the Hat. Functions identically to it.</string>
 			</Properties>
 		</Item>
 		<Item class="ReflectionMetadataClass" referent="RBXAD863F1BA6EC40EAB37637E74C4ED57E">
@@ -4754,40 +4754,40 @@
 		<Item class="ReflectionMetadataClass" referent="RBXA186BF8B00EA4661919FD2B5BA697BE0">
 			<Properties>
 				<bool name="Browsable">false</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">1</int>
 				<int name="ExplorerOrder">12</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">PrismPart</string>
 				<string name="PreferredParent"></string>
-				<string name="summary">A Prism Part</string>
+				<string name="summary">An unfinished Prism Part</string>
 			</Properties>
 		</Item>
 		<Item class="ReflectionMetadataClass" referent="RBX56E37C09A46C42C1BA2BA66303618D1B">
 			<Properties>
 				<bool name="Browsable">false</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">1</int>
 				<int name="ExplorerOrder">12</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">PyramidPart</string>
 				<string name="PreferredParent"></string>
-				<string name="summary">A Pyramid Part</string>
+				<string name="summary">An unfinished Pyramid Part</string>
 			</Properties>
 		</Item>
 		<Item class="ReflectionMetadataClass" referent="RBX58123B6E547C473FAD4899A147F60013">
 			<Properties>
 				<bool name="Browsable">false</bool>
-				<bool name="Deprecated">false</bool>
+				<bool name="Deprecated">true</bool>
 				<int name="ExplorerImageIndex">1</int>
 				<int name="ExplorerOrder">12</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
 				<string name="Name">ParallelRampPart</string>
 				<string name="PreferredParent"></string>
-				<string name="summary">A ParallelRamp Part</string>
+				<string name="summary">An unfinished ParallelRamp Part</string>
 			</Properties>
 		</Item>
 		<Item class="ReflectionMetadataClass" referent="RBX02EE6BBF72D14F12B7CE365EB2E76D20">
@@ -5008,7 +5008,7 @@
 				<bool name="IsBackend">false</bool>
 				<string name="Name">SurfaceGui</string>
 				<string name="PreferredParent">StarterGui</string>
-				<string name="summary">tbd </string>
+				<string name="summary">A special type of GUI which can be applied to the surface of a part.</string>
 			</Properties>
 			<Item class="ReflectionMetadataProperties" referent="RBX8F0E10348FCD4BB2A7C603D8D0082272">
 				<Properties>
@@ -5435,7 +5435,7 @@
 			<Properties>
 				<bool name="Browsable">false</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">0</int>
+				<int name="ExplorerImageIndex">48</int>
 				<int name="ExplorerOrder">99</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
@@ -5448,7 +5448,7 @@
 			<Properties>
 				<bool name="Browsable">false</bool>
 				<bool name="Deprecated">false</bool>
-				<int name="ExplorerImageIndex">0</int>
+				<int name="ExplorerImageIndex">48</int>
 				<int name="ExplorerOrder">99</int>
 				<bool name="Insertable">true</bool>
 				<bool name="IsBackend">false</bool>
@@ -6158,6 +6158,121 @@
 				<string name="Name">PointLight</string>
 				<string name="PreferredParent"></string>
 				<string name="summary">Makes the parent part emit light in a spherical shape</string>
+			</Properties>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXB906EE056F034080B466566140735F72">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">70</int>
+				<int name="ExplorerOrder">3</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">RobloxReplicatedStorage</string>
+				<string name="PreferredParent"></string>
+				<string name="summary">A container whose contents are replicated to all clients and the server. Reserved for Roblox usage only.</string>
+			</Properties>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXB1B95668287844049BCB3D92F1C1AAE5">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">60</int>
+				<int name="ExplorerOrder">22</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">Animator</string>
+				<string name="PreferredParent"></string>
+				<string name="summary">Object used to animate the Humanoid.</string>
+			</Properties>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXBB54A9568CB54C609B82A8ADF96D8456">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">13</int>
+				<int name="ExplorerOrder">3</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">SurfaceLight</string>
+				<string name="PreferredParent"></string>
+				<string name="summary">Makes the parent part emit light in a spherical shape</string>
+			</Properties>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXEA73AFED36424CD5AF0C959118056EA8">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">55</int>
+				<int name="ExplorerOrder">21</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">Selection</string>
+				<string name="PreferredParent"></string>
+				<string name="summary">A service used to detect and change what a user is selecting in Roblox Studio.</string>
+			</Properties>
+			<Item class="ReflectionMetadataFunctions" referent="RBX4B7E9B29C9AD4E2FA4B00EC55454019E">
+				<Properties>
+					<string name="Name">Instance</string>
+				</Properties>
+				<Item class="ReflectionMetadataMember" referent="RBX0B0FD752CE984693A1F56A2F217A0113">
+					<Properties>
+						<bool name="Browsable">true</bool>
+						<bool name="Deprecated">false</bool>
+						<bool name="IsBackend">false</bool>
+						<string name="Name">Get</string>
+						<string name="summary">Returns a table of all objects the user is currently selecting</string>
+					</Properties>
+				</Item>
+				<Item class="ReflectionMetadataMember" referent="RBXB36EF640939A4D29AB66163A4EC9A59F">
+					<Properties>
+						<bool name="Browsable">true</bool>
+						<bool name="Deprecated">false</bool>
+						<bool name="IsBackend">false</bool>
+						<string name="Name">Set</string>
+						<string name="summary">Changes the user&apos;s current selection</string>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="ReflectionMetadataEvents" referent="RBX7328F80F8C894C38B90B98F529C51BE1">
+				<Properties>
+					<string name="Name">Instance</string>
+				</Properties>
+				<Item class="ReflectionMetadataMember" referent="RBXC4419858E147424296D1201848483206">
+					<Properties>
+						<bool name="Browsable">true</bool>
+						<bool name="Deprecated">false</bool>
+						<bool name="IsBackend">false</bool>
+						<string name="Name">SelectionChanged</string>
+						<string name="summary">Fired when the selection in roblox studio is changed</string>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXB185D4E81B0C449E8BE9F9596EAED5C1">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">4</int>
+				<int name="ExplorerOrder">3</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">StringValue</string>
+				<string name="PreferredParent"></string>
+				<string name="summary"></string>
+			</Properties>
+		</Item>
+		<Item class="ReflectionMetadataClass" referent="RBXCB5D9AC2476B4B2B96D8B244DAB35160">
+			<Properties>
+				<bool name="Browsable">true</bool>
+				<bool name="Deprecated">false</bool>
+				<int name="ExplorerImageIndex">4</int>
+				<int name="ExplorerOrder">3</int>
+				<bool name="Insertable">true</bool>
+				<bool name="IsBackend">false</bool>
+				<string name="Name">BinaryStringValue</string>
+				<string name="PreferredParent"></string>
+				<string name="summary">A special type of StringValue used in Solid Modeling. Currently has no use.</string>
 			</Properties>
 		</Item>
 	</Item>
