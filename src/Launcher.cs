@@ -67,18 +67,47 @@ namespace RobloxModManager
             return root;
         }
 
-        public void DownloadStudio(string path)
+        public async void DownloadStudio(string path, string dataBase)
         {
             string filePath = Path.Combine(path, "RobloxStudioLauncherBeta.exe");
-            if (!File.Exists(filePath))
+
+            byte[] RobloxStudio = http.DownloadData("http://setup." + dataBase + ".com/RobloxStudioLauncherBeta.exe");
+            FileStream download = File.Create(filePath);
+            download.Write(RobloxStudio, 0, RobloxStudio.Length);
+            download.Close();
+
+            Process.Start(filePath);
+
+            bool waitingToComplete = true;
+            bool possiblyComplete = false;
+
+            while (waitingToComplete)
             {
-                byte[] RobloxStudio = http.DownloadData("http://setup.roblox.com/RobloxStudioLauncherBeta.exe");
-                FileStream download = File.Create(filePath);
-                download.Write(RobloxStudio, 0, RobloxStudio.Length);
-                download.Close();
+                Process[] stillUpdating = Process.GetProcessesByName("RobloxStudioLauncherBeta");
+                if (stillUpdating.Length > 0)
+                {
+                    possiblyComplete = false;
+                    Process currentStudio = stillUpdating[0];
+                    currentStudio.WaitForExit();
+                }
+                else
+                {
+                    if (!possiblyComplete)
+                    {
+                        possiblyComplete = true;
+                        await Task.Delay(1000);
+                    }
+                    else
+                    {
+                        waitingToComplete = false;
+                    }
+                }
             }
-            Process studio = Process.Start(filePath);
-            studio.WaitForExit();
+
+            // The launcher will attempt to start studio once its done downloading and stuff.
+            // We need to prevent this.
+
+            await Task.Delay(500);
             Process[] running = Process.GetProcessesByName("RobloxStudioBeta");
             foreach (Process p in running)
             {
@@ -99,7 +128,8 @@ namespace RobloxModManager
                 Environment.GetEnvironmentVariable("LocalAppData"), 
                 Environment.GetEnvironmentVariable("ProgramFiles")
             };
-            string version = http.DownloadString("http://setup.roblox.com/versionQTStudio");
+            string dataBase = (string)dataBaseSelect.Items[Properties.Settings.Default.Database];
+            string version = http.DownloadString("http://setup." + dataBase + ".com/versionQTStudio");
             string exePath = null;
             foreach (string envPath in envPaths)
             {
@@ -122,7 +152,9 @@ namespace RobloxModManager
                 {
                     Directory.CreateDirectory(root);
                 }
-                DownloadStudio(root);
+                Console.WriteLine("Downloading");
+                DownloadStudio(root,dataBase);
+                Console.WriteLine("We're done");
                 foreach (string envPath in envPaths)
                 {
                     string directory = Path.Combine(envPath, "Roblox", "Versions", version, "RobloxStudioBeta.exe");
@@ -146,7 +178,7 @@ namespace RobloxModManager
             Process.Start(modPath);
         }
 
-        private void launchStudio_Click(object sender, EventArgs e)
+        private async void launchStudio_Click(object sender, EventArgs e)
         {
             this.Hide();
             // Check mod folders to see if we need to override anything, then launch.
@@ -165,7 +197,6 @@ namespace RobloxModManager
                     if (!File.Exists(relativeFile))
                     {
                         File.Create(relativeFile);
-                    
                     }
                     byte[] studioFile = File.ReadAllBytes(relativeFile);
                     if (!fileContents.SequenceEqual(studioFile))
@@ -181,6 +212,17 @@ namespace RobloxModManager
             Process Studio = Process.Start(studioPath);
             Studio.WaitForExit();
             Application.Exit();
+        }
+
+        private void Launcher_Load(object sender, EventArgs e)
+        {
+            dataBaseSelect.SelectedIndex = Properties.Settings.Default.Database;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Database = dataBaseSelect.SelectedIndex;
+            Properties.Settings.Default.Save();
         }
     }
 }
