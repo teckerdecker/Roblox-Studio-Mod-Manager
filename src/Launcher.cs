@@ -27,6 +27,7 @@ namespace RobloxModManager
                 string[] folderPaths = new string[]
                 {
                     "BuiltInPlugins",
+                    "ClientSettings",
                     "content/fonts",
                     "content/music",
                     "content/particles",
@@ -107,7 +108,7 @@ namespace RobloxModManager
             // The launcher will attempt to start studio once its done downloading and stuff.
             // We need to prevent this.
 
-            await Task.Delay(500);
+            await Task.Delay(1000);
             Process[] running = Process.GetProcessesByName("RobloxStudioBeta");
             foreach (Process p in running)
             {
@@ -152,9 +153,7 @@ namespace RobloxModManager
                 {
                     Directory.CreateDirectory(root);
                 }
-                Console.WriteLine("Downloading");
                 DownloadStudio(root,dataBase);
-                Console.WriteLine("We're done");
                 foreach (string envPath in envPaths)
                 {
                     string directory = Path.Combine(envPath, "Roblox", "Versions", version, "RobloxStudioBeta.exe");
@@ -178,7 +177,7 @@ namespace RobloxModManager
             Process.Start(modPath);
         }
 
-        private async void launchStudio_Click(object sender, EventArgs e)
+        private void launchStudio_Click(object sender, EventArgs e)
         {
             this.Hide();
             // Check mod folders to see if we need to override anything, then launch.
@@ -194,6 +193,11 @@ namespace RobloxModManager
                     byte[] fileContents = File.ReadAllBytes(modFile);
                     FileInfo modFileControl = new FileInfo(modFile);
                     string relativeFile = modFile.Replace(modPath, studioRoot);
+                    string relativeDir = Directory.GetParent(relativeFile).ToString();
+                    if (!Directory.Exists(relativeDir))
+                    {
+                        Directory.CreateDirectory(relativeDir);
+                    }
                     if (!File.Exists(relativeFile))
                     {
                         File.Create(relativeFile);
