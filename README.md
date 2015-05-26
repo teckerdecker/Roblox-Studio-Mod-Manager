@@ -4,4 +4,4 @@ This program is a custom launcher for Roblox Studio which allows you to maintain
 without Roblox overwriting them everytime you launch.
 
 Download:
-https://github.com/CloneTrooper1019/Roblox-Studio-Mod-Manager/raw/master/RobloxStudioModLauncher.exe
+https://github.com/CloneTrooper1019/Roblox-Studio-Mod-Manager/raw/master/RobloxStudioModManager.exe
