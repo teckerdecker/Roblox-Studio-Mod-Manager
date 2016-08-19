@@ -68,104 +68,6 @@ namespace RobloxModManager
             return root;
         }
 
-        public async void DownloadStudio(string path, string dataBase)
-        {
-            string filePath = Path.Combine(path, "RobloxStudioLauncherBeta.exe");
-
-            byte[] RobloxStudio = http.DownloadData("http://setup." + dataBase + ".com/RobloxStudioLauncherBeta.exe");
-            FileStream download = File.Create(filePath);
-            download.Write(RobloxStudio, 0, RobloxStudio.Length);
-            download.Close();
-
-            Process.Start(filePath);
-
-            bool waitingToComplete = true;
-            bool possiblyComplete = false;
-
-            while (waitingToComplete)
-            {
-                Process[] stillUpdating = Process.GetProcessesByName("RobloxStudioLauncherBeta");
-                if (stillUpdating.Length > 0)
-                {
-                    possiblyComplete = false;
-                    Process currentStudio = stillUpdating[0];
-                    currentStudio.WaitForExit();
-                }
-                else
-                {
-                    if (!possiblyComplete)
-                    {
-                        possiblyComplete = true;
-                        await Task.Delay(1000);
-                    }
-                    else
-                    {
-                        waitingToComplete = false;
-                    }
-                }
-            }
-
-            // The launcher will attempt to start studio once its done downloading and stuff.
-            // We need to prevent this.
-
-            await Task.Delay(1000);
-            Process[] running = Process.GetProcessesByName("RobloxStudioBeta");
-            foreach (Process p in running)
-            {
-                try
-                {
-                    p.Kill();
-                }
-                catch
-                {
-                    // Sometimes it won't let us :/
-                }
-            }
-        }
-
-        public string getStudioExePath()
-        {
-            string[] envPaths = new string[] { 
-                Environment.GetEnvironmentVariable("LocalAppData"), 
-                Environment.GetEnvironmentVariable("ProgramFiles")
-            };
-            string dataBase = (string)dataBaseSelect.Items[Properties.Settings.Default.Database];
-            string version = http.DownloadString("http://setup." + dataBase + ".com/versionQTStudio");
-            string exePath = null;
-            foreach (string envPath in envPaths)
-            {
-                string directory = Path.Combine(envPath, "Roblox", "Versions", version, "RobloxStudioBeta.exe");
-                if (File.Exists(directory))
-                {
-                    exePath = directory;
-                    break;
-                }
-            }
-            if (exePath != null)
-            {
-                return exePath;
-            }
-            else
-            {
-                string appData = Environment.GetEnvironmentVariable("AppData");
-                string root = Path.Combine(appData, "RbxModManager");
-                if (!Directory.Exists(root))
-                {
-                    Directory.CreateDirectory(root);
-                }
-                DownloadStudio(root,dataBase);
-                foreach (string envPath in envPaths)
-                {
-                    string directory = Path.Combine(envPath, "Roblox", "Versions", version, "RobloxStudioBeta.exe");
-                    if (File.Exists(directory))
-                    {
-                        return directory;
-                    }
-                }
-            }
-            throw new Exception("Couldn't locate Roblox Studio");
-        }
-
         public Launcher()
         {
             InitializeComponent();
@@ -177,11 +79,12 @@ namespace RobloxModManager
             Process.Start(modPath);
         }
 
-        private void launchStudio_Click(object sender, EventArgs e)
+        private async void launchStudio_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            // Check mod folders to see if we need to override anything, then launch.
-            string studioPath = getStudioExePath();
+            this.Enabled = false;
+            string dataBase = (string)dataBaseSelect.Items[Properties.Settings.Default.Database];
+            RobloxInstaller installer = new RobloxInstaller();
+            string studioPath = await installer.RunInstaller(dataBase,forceRebuild.Checked);
             string studioRoot = Directory.GetParent(studioPath).ToString();
             string modPath = getModPath();
             string[] studioFiles = Directory.GetFiles(studioRoot);
@@ -200,7 +103,8 @@ namespace RobloxModManager
                     }
                     if (!File.Exists(relativeFile))
                     {
-                        File.Create(relativeFile);
+                        FileStream currentStream = File.Create(relativeFile);
+                        currentStream.Close();
                     }
                     byte[] studioFile = File.ReadAllBytes(relativeFile);
                     if (!fileContents.SequenceEqual(studioFile))
@@ -213,8 +117,11 @@ namespace RobloxModManager
                     Console.WriteLine("Failed to overwrite " + modFile + "\nMight be open in another program\nThats their problem, not mine <3");
                 }
             }
-            Process Studio = Process.Start(studioPath);
-            Studio.WaitForExit();
+            Process roblox = Process.Start(studioPath);
+            await Task.Delay(500);
+            installer.Dispose();
+            this.Dispose();
+            roblox.WaitForExit();
             Application.Exit();
         }
 

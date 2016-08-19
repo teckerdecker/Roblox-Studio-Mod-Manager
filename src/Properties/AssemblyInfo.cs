@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RobloxModManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ROBLOX Studio Mod Manager")]
+[assembly: AssemblyDescription("A custom launcher/updater for ROBLOX Studio. Lets you overwrite files in the engine build.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("MaxGee1019")]
 [assembly: AssemblyProduct("RobloxModManager")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
