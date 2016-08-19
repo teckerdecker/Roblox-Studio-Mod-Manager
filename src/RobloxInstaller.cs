@@ -29,10 +29,7 @@ namespace RobloxModManager
 
     public partial class RobloxInstaller : Form
     {
-        private string database;
         private int echoSteps = 0;
-
-        public event EventHandler OnFinished;
         public string robloxStudioPath;
 
         WebClient http = new WebClient();

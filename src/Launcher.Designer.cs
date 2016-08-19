@@ -46,7 +46,7 @@
             this.launchStudio.Name = "launchStudio";
             this.launchStudio.Size = new System.Drawing.Size(186, 28);
             this.launchStudio.TabIndex = 6;
-            this.launchStudio.Text = "Launch Roblox Studio";
+            this.launchStudio.Text = "Launch ROBLOX Studio";
             this.launchStudio.UseVisualStyleBackColor = true;
             this.launchStudio.Click += new System.EventHandler(this.launchStudio_Click);
             // 
@@ -136,7 +136,7 @@
             this.MaximizeBox = false;
             this.Name = "Launcher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Roblox Mod Manager";
+            this.Text = "ROBLOX Studio Mod Manager";
             this.Load += new System.EventHandler(this.Launcher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
